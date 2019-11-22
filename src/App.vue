@@ -1,29 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+  <el-container class="baseCont">
+    <base-asider></base-asider>
+    <base-main></base-main>
+  </el-container>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import { Component, Vue } from "vue-property-decorator";
+import { getCommon } from "utils/tools";
+const BaseAsider = getCommon("BaseAsider");
+const BaseMain = getCommon("BaseMain");
 
 @Component({
   components: {
-    HelloWorld,
-  },
+    BaseAsider,
+    BaseMain
+  }
 })
 export default class App extends Vue {}
 </script>
 
-<style lang="less">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="less" scoped>
+.baseCont {
+  height: 100vh;
+  min-width: 1024px;
 }
 </style>
